@@ -1,0 +1,25 @@
+<div class="media">
+	<div class="media-left">
+        <i class='icon-large icon-folder'></i>
+      </div>
+      <div class="media-body">
+        
+        <?php
+        	if(!$this->fullView)echo "<h5 class='media-heading'>
+        							<a href='index.php?cid=".chapterDoc."&id=".$this->viewData->objectID."'>".
+        								$this->viewData->Title.
+        							"</a>
+        						</h5>
+        						<p>
+        							".$this->viewData->SubTitle."
+        						</p>";
+        	else			echo "<h5 class='media-heading'>
+        								".$this->viewData->Title."
+        						</h5>
+        						<div>
+        							".$this->viewData->Text."
+        						</div>";
+        
+        ?>
+    </div>
+</div>

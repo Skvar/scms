@@ -1,0 +1,16 @@
+<header>
+	<div class="container-fluid">	
+		<div class='row page-title-layout'>
+			<div class='col-md-6 col-sm-5 page-header page-header-title m-auto'>
+				<p><?= $this->viewData['owner']->Type; ?></p>
+				<p><?= $this->viewData['owner']->Name; ?></p></div>
+			<div class='col-md-6 col-sm-7 page-header page-header-info-layout '>
+				<div class='page-header-info m-auto'>
+					<p><i class='icon-location'></i>&nbsp;<?=$this->viewData['owner']->Address; ?></p>
+					<p><i class='icon-phone'></i>&nbsp;<?=$this->viewData['owner']->Phones; ?></p>
+					<p><i class='icon-envelop'></i>&nbsp;<?=$this->viewData['owner']->Email; ?></p>
+				</div>
+			</div>					
+		</div>	
+	</div>
+</header>
