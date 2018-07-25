@@ -8,7 +8,7 @@ ini_set('session.gc_divisor', 1000);
 //const------------------------------------------------------------
 if(!defined("confOurOrg"))					define("confOurOrg",473);
 if(!defined("workDir"))						define("workDir",'/test');
-if(!defined("defLogPath"))					define("defLogPath",'logs/');
+if(!defined("defLogPath"))					define("defLogPath",'logs/'); 
 
 
 //Set paths-------------------------------------------------------

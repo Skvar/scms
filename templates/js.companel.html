@@ -1,11 +1,7 @@
-<ul class='combar'>
-	<li class='combar-item'>
-   			Действия:
-    </li>
+<small><div class='nav justify-content-start border-top bg-dark'>
+	<a href='#' class="nav-item nav-link pl-item">Действия:</a>
 	<?php
 		foreach($this->viewData['command'] as $index => $point)
-			echo 	"<li class='combar-item'>
-   						<a class='combar-link' href='#'>".$point['caption']."</a>
-      				</li>";
+			echo 	"<a class='nav-item nav-link  pl-item' href='#'>".$point['caption']."</a>";
     ?>
-</ul>
+</div></small>

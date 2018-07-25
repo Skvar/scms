@@ -1,6 +1,6 @@
 <?php
-include_once("BaseChapter.php");
-include_once("UserViewer.php");
+use Classes\JBaseChapter;
+use Viewers\JUserViewer;
 //----------------------------------------------------
 class JUserChapter extends JBaseChapter
 {

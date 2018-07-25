@@ -2,15 +2,15 @@
 include_once("BaseClass.php");
 //------------------------------
 
-
+use Classes\JBaseClass;
+use Controls\JOrganization;
+use Controls\JUser;
+use Viewers\Page\JPageHeader;
+use Viewers\Page\JPageBody;
+use Viewers\Page\JPageFooter;
 //------------------------------
-include_once("PageHeader.php");
-include_once("PageBody.php");
-include_once("PageFooter.php");
-//------------------------------
 
-include_once("user.php");
-include_once("organization.php");
+
 
 
 class JApplication extends JBaseClass
@@ -58,7 +58,7 @@ class JApplication extends JBaseClass
 		
 //merge menu string-----------------------------------------
 		foreach($this->Chapters as $key => $chapter){
-			if(is_a($chapter,"JBaseChapter")){		
+			if(is_a($chapter,"Classes\JBaseChapter")){		
 				$m = $chapter->GetMenuString();	
 				foreach($m as $pos => $val){
 					if(isset($val['subitem'])){
@@ -76,10 +76,11 @@ class JApplication extends JBaseClass
 		$this->objectID		= intval(isset($arg['id']) ? $arg['id'] : 0);
 //---------------------------------------------------
 		$cChapter = $this->Chapters[$this->ChapterIndex];
-		if(is_a($cChapter,"JBaseChapter")){	
+
+		if(is_a($cChapter,"Classes\JBaseChapter")){			
+			$cChapter->Load($this->objectID);
 			$tmp = $cChapter->GetCommandString($this->TabControl);
 			if(!empty($tmp)) $this->Command = $tmp;
-			$cChapter->Load($this->objectID);
 		}
 	}	
 //----------------------------------------------------	
@@ -125,11 +126,13 @@ class JApplication extends JBaseClass
 				$cname = "J".$class;		
 				$this->Chapters[$ix] = new $cname($ix,$title);
 				$ix++;	
+				$this->Message("Module ".$class.".php"." found");
 			}
 			else{
 				$this->Error("Module ".$class." not found.");
 			}
 		}
+		
 		
 		return true;
 	
@@ -164,7 +167,7 @@ class JApplication extends JBaseClass
 		return true;	
 	}
 //----------------------------------------------------	
-	public function GetDBContext(){
+	static public function GetDBContext(){
 		return $this->hDB;
 	}
 };

@@ -1,5 +1,7 @@
 <?php
-include_once("BaseViewer.php");
+namespace Viewers{
+	
+use Classes\JBaseViewer;
 //----------------------------------------------------
 class JDocumentViewer extends JBaseViewer
 {
@@ -12,11 +14,13 @@ class JDocumentViewer extends JBaseViewer
 		$this->viewData = $data;
 		$this->fullView = $fv;
 	}
+
 //----------------------------------------------------	
 	public function Render()
 	{
 		include("js.viewer.doc.html");
 	
 	}
+}
 }
 ?>

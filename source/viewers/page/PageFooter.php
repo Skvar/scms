@@ -1,22 +1,20 @@
 <?php
-namespace Viewers{
+namespace Viewers\Page{
 	
 	use Classes\JBaseViewer;
 	//----------------------------------------------------
-	class JLinkViewer extends JBaseViewer
+	class JPageFooter extends JBaseViewer
 	{
 	 
 	//----------------------------------------------------
 		public function __construct($data)
 		{
-			parent::__construct("JLinkViewer");
-			$this->Name = "JLinkViewer";
-			$this->viewData = $data;
+			parent::__construct("JPageFooter");
+			$this->viewData = $data;				
 		}
 	//----------------------------------------------------	
-		public function Render()
-		{
-			include("js.viewer.link.html");
+		public function Render(){
+			include("js.footer.html");
 		}
 	}
 }

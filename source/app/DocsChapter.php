@@ -1,6 +1,9 @@
 <?php
-include_once("BaseChapter.php");
-include_once("pubcollector.php");
+use Classes\JBaseChapter;
+use Controls\JDocument;
+use Viewers\JDocumentViewer;
+use Controls\JCollector;
+use Viewers\JCollectorViewer;
 //----------------------------------------------------
 class JDocsChapter extends JBaseChapter
 {
@@ -35,12 +38,12 @@ class JDocsChapter extends JBaseChapter
 	public function Load($id=0)
 	{
 		if(!$id){
-			$this->Publication = (new JPublicationCollector(typeDocs))->Load();
-			$this->Viewer = new JPubCollectorViewer($this->Publication,$this->Name);
+			$this->Publication = (new JCollector("JDocument"))->Load();
+			$this->Viewer = new JCollectorViewer($this->Publication,$this->Name);
 			$this->Message("Load ".$this->Publication->Name." type ".typeDocs);
 		}
 		else{
-			$this->Publication = (new JPublicationDocument($id))->Load();
+			$this->Publication = (new JDocument($id))->Load();
 			$this->Viewer = new JDocumentViewer($this->Publication,true);
 			$this->Message("Load ".$this->Publication->Name." id ".$id);
 		}
@@ -48,9 +51,29 @@ class JDocsChapter extends JBaseChapter
 	
 //----------------------------------------------------		
 	public function GetCommandString($tab)
-	{
-		
-		
+	{		
+	
+		if(is_a($this->Viewer,"Viewers\JCollectorViewer")){
+			$out =  Array(
+				Array(
+					'caption'=>'Список документов'
+				),
+				Array(
+					'caption'=>'Добавить'
+				)
+			);			
+		}
+		elseif(is_a($this->Viewer,"Viewers\JDocumentViewer")){
+			$out =  Array(
+				Array(
+					'caption'=>'Править'
+				),
+				Array(
+					'caption'=>'Удалить'
+				)
+			);
+		}
+		return $out;	
 	}
 	
 //----------------------------------------------------	

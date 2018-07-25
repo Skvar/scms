@@ -1,5 +1,5 @@
 <?php
-include_once("BaseChapter.php");
+use Classes\JBaseChapter;
 //----------------------------------------------------
 class JBuildingsChapter extends JBaseChapter
 {

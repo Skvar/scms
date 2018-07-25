@@ -1,6 +1,8 @@
 <?php
-include_once("BaseChapter.php");
-include_once("pubcollector.php");
+
+use Classes\JBaseChapter;
+use Controls\JCollector;
+use Viewers\JCollectorViewer;
 //----------------------------------------------------
 class JMainChapter extends JBaseChapter
 {
@@ -27,8 +29,8 @@ class JMainChapter extends JBaseChapter
 //----------------------------------------------------		
 	public function Load($id=0)
 	{
-		$this->Publication = (new JPublicationCollector(typeNews))->Load();
-		$this->Viewer = new JPubCollectorViewer($this->Publication,$this->Name);
+		$this->Publication = (new JCollector("JNew"))->Load();
+		$this->Viewer = new JCollectorViewer($this->Publication,$this->Name);
 		$this->Message("Load ".$this->Publication->Name." type ".typeNews);
 	}
 	

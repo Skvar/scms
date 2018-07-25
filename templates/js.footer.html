@@ -1,12 +1,7 @@
-<header>
+<footer>
 	<div class="container-fluid">	
-		<div class='row page-title-layout'>
-			<div class='col-lg-7 col-md-12 page-header-title m-auto text-shadow d-inline-flex justify-content-between align-items-center'>
-				<i class='icon-logo page-header-logo align-middle'></i>
-				<p><?= $this->viewData['owner']->Type; ?><br>
-				<?= $this->viewData['owner']->Name; ?></p>
-			</div>
-			<div class='col-lg-5 col-md-12 p-2'>
+		<div class='row'>
+			<div class='col-md-12 p-2'>
 				<div class='d-flex flex-column justify-content-center page-header-info'>
 					<p class='d-flex align-items-center jus'><i class='icon-location'></i>&nbsp;<i><?=$this->viewData['owner']->Address; ?></i></p>
 					<p class='d-flex align-items-center'><i class='icon-phone'></i>&nbsp;<i><?=$this->viewData['owner']->Phones; ?></i></p>
@@ -15,4 +10,4 @@
 			</div>					
 		</div>	
 	</div>
-</header>
+</footer>
