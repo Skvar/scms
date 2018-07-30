@@ -20,6 +20,10 @@ class JApplication extends JBaseClass
 	public $Version;
 	public $User;
 	public $Title;
+	
+	public $FavIconString="";
+	public $StylesString="";
+	public $JScriptsString="";
 
 	private $Menu = Array();
 	private $Command = Array();
@@ -32,6 +36,10 @@ class JApplication extends JBaseClass
 //----------------------------------------------------
 	public function __construct($arg,$conffile = "")
 	{
+		global $stylefiles;
+		global $scriptfiles;
+		global $icons;
+		//--------------------------------------------------------
 		parent::__construct(NULL,"SCMS Application");
 		$this->Name = "SCMS";
 		$this->Version = 0.7;
@@ -50,6 +58,18 @@ class JApplication extends JBaseClass
 		$this->User->CheckAuthorizy();
 		
 		$this->Title = $this->Owner->Name.($this->User->Type?(": ".$this->User->UserName):"");
+//---------------------------------------------------------
+		$ix = rand(0,count($icons)-1);
+		$this->FavIconString = "<link rel='icon' type='image/png' href='$icons[$ix]'>\n";
+
+
+		foreach($stylefiles as $val){
+			$this->StylesString.="<link rel='stylesheet' href='$val' asp-append-version='true' />\n";		
+		}
+		
+		foreach($scriptfiles as $val){
+			$this->JScriptsString.="<script src='$val' asp-append-version='true' ></script>\n";		
+		}		
 		
 //---------------------------------------------------------	
 		$this->Chapters[chapterUser]->SetUser($this->User);

@@ -1,10 +1,25 @@
+:root {
+ --gray:#959595;
+}
+
+.bg-gray {
+  background-color: #959595; !important;
+}
+
+a.bg-gray:hover, a.bg-gray:focus,
+button.bg-gray:hover,
+button.bg-gray:focus {
+  background-color: #959595; !important;
+}
+
+
 
 body{
 	font-family: 'Tahoma';
 	background-color: #F0F0F0;
 }
 .page-title-layout{
-	background-color: #959595;;
+	background-color: #959595;
 }
 .page-header-title{
 	font: bold italic 40px 'Palotino linotypes';
@@ -18,7 +33,13 @@ body{
 	height:110px;
 	font-size: 100px;
 	color:white;
-	float: left;
+}
+
+.page-footer-logo{
+	width:60px;
+	height:60px;
+	font-size: 60px;
+	color:white;
 }
 
 .text-shadow{
@@ -47,6 +68,10 @@ body{
 .nav-item:hover{
 	background-color:#C0C0C0;
 	color:white; 
+}
+
+.pl-layout{
+	padding-left: 50px;
 }
 
 .pl-item{

@@ -22,7 +22,23 @@ set_include_path($_SERVER['DOCUMENT_ROOT'].workDir."/".PATH_SEPARATOR.
 				 $_SERVER['DOCUMENT_ROOT'].workDir."/source/controls".PATH_SEPARATOR.
 				 $_SERVER['DOCUMENT_ROOT'].workDir."/source/utils".PATH_SEPARATOR.
 				 $_SERVER['DOCUMENT_ROOT'].workDir."/source");
-				 
+				
+//styles-----------------------------------------------------------
+$stylefiles = Array("libs/bootstrap/css/bootstrap.css", 
+					"libs/icomoon/style.css",
+					"templates/styles.css?ver=0.009"
+					);
+					
+//scripts----------------------------------------------------------
+$scriptfiles = Array(	"libs/jquery/jquery-3.3.1.js",
+						"libs/bootstrap/js/bootstrap.min.js",
+						"source/js/ajax.js",
+						"source/js/jsloop.js?ver=0.001",
+						"libs/spin.min.js"
+					);	
+				
+//favicons---------------------------------------------------------
+$icons = Array("favicon.png"); 
 				 
 				 
 //modules----------------------------------------------------------
